@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
-  private String name;
+  public String name;
   private String telefone;
   private List<Service> history;
   private List<String> preference;

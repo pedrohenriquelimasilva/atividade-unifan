@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Manicure {
@@ -16,7 +18,7 @@ public class Manicure {
     System.out.println("Digite o telefone do cliente:");
     String telefone = scanner.nextLine();
 
-    Cliente client = new Client(name, telefone);
+    Client client = new Client(name, telefone);
     clients.add(client);
 
     System.out.println("Cliente cadastrado com sucesso!");
@@ -28,7 +30,7 @@ public class Manicure {
     System.out.println("Digite o nome do cliente:");
     String nomeClient = scanner.nextLine();
 
-    Cliente cliente = encontrarCliente(nomeClient);
+    Client cliente = encontrarCliente(nomeClient);
     if (cliente != null) {
       System.out.println("Digite o tipo de serviço:");
       String tipoServico = scanner.nextLine();
@@ -41,7 +43,7 @@ public class Manicure {
       double custo = scanner.nextDouble();
 
       Service servico = new Service(tipoServico, produtos, custo);
-      cliente.adicionarServico(servico);
+      cliente.addService(servico);
 
       System.out.println("Serviço agendado com sucesso!");
     } else {
@@ -55,7 +57,7 @@ public class Manicure {
     System.out.println("Digite o nome do cliente:");
     String nomeClient = scanner.nextLine();
 
-    Cliente client = encontrarCliente(nomeClient);
+    Client client = encontrarCliente(nomeClient);
     if (client != null) {
       client.visualizerInfo();
     } else {
@@ -65,7 +67,7 @@ public class Manicure {
 
   private Client encontrarCliente(String nomeClient) {
     for (Client client : clients) {
-      if (client.nome.equalsIgnoreCase(nomeClient)) {
+      if (client.name.equalsIgnoreCase(nomeClient)) {
         return client;
       }
     }
